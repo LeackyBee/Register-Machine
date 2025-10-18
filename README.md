@@ -6,8 +6,8 @@ A Register Machine implementation I coded for my Computation Theory course
 The machine requires a program (obviously!), which can be read in from a file.
 To produce a file that can be read in, create a plaintext file containing lines of the form:
 
-Li : Rc- -> Lj , Lk (Subtraction instruction)\
-Li : Rc+ -> Lj      (Addition instruction)\
+Li : Rc- -> Lj , Lk (Subtract 1 from Register c and move to line j. If Register c was 0, move to line k instead)\
+Li : Rc+ -> Lj      (Add 1 to Register c, and move to line j)\
 Li : H              (Halting Instruction)
 
 where: 
@@ -15,10 +15,6 @@ i, j, and k, are labels of some form (can be alphanumeric, just no whitespace)
 c is an integer
 
 Note that the first line will be the first instruction executed, after that it is up to your program flow
-
-For Subtraction, if Rc is 0 nothing happens, and machine jumps to instruction Lk, otherwise Rc is decremented and machine jumps to instruction Lj\
-For Addition, Rc is incremented and machine jumps to instruction Lj\
-For Halt, machine terminates.
 
 Example:
 
